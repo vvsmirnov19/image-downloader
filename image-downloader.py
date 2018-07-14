@@ -11,7 +11,7 @@ s = str(s)
 r = requests.get(s)
 pattern = r'href=\"(.+?\.png|.+?\.jpg|.+?\.gif)\"'
 time1 = time.strftime('%H-%M-%S', time.localtime())
-path1 = 'C:\\'+time1
+path1 = os.path.join(os.getcwd(), time1)
 os.mkdir(path1)
 os.chdir(path1)
 images = re.findall(pattern, r.text)
