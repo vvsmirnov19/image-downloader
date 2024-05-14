@@ -16,9 +16,9 @@ os.mkdir(path1)
 os.chdir(path1)
 images = re.findall(pattern, r.text)
 for image in images:
-	r1 = requests.get('https://2ch.hk/' + image, stream=True)
-	if r1.status_code == 200:
-		(dirname, filename) = os.path.split(image)
-		with open(filename, 'wb') as file:
-			r1.raw.decode_content = True
-			shutil.copyfileobj(r1.raw, file)
+    r1 = requests.get('https://2ch.hk/' + image, stream=True)
+    if r1.status_code == 200:
+        (dirname, filename) = os.path.split(image)
+        with open(filename, 'wb') as file:
+            r1.raw.decode_content = True
+            shutil.copyfileobj(r1.raw, file)
